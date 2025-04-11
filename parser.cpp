@@ -1,11 +1,15 @@
 
+#include <stdint.h>
+#include <stdio.h>
 
-uint16_t read_le_u16(uint8_t *ptr)
+#include "parser.h"
+
+static uint16_t read_le_u16(uint8_t *ptr)
 {
   return ptr[0] | (ptr[1] << 8);
 }
 
-void ParseAVIInfoFrame(uint8_t *data)
+int ParseAVIInfoFrame(uint8_t *data)
 {
   AviPB1_T *p = (AviPB1_T *)&data[4];
   AviPB2_T *q = (AviPB2_T *)&data[5];
@@ -205,9 +209,11 @@ void ParseAVIInfoFrame(uint8_t *data)
       break;
   }
   printf("\n");
+
+  return 0;
 }
 
-void ParseHDRInfoFrame(uint8_t *data)
+int ParseHDRInfoFrame(uint8_t *data)
 {
   uint8_t eotf = data[4];
   uint8_t sm_id = data[5];
@@ -264,4 +270,6 @@ void ParseHDRInfoFrame(uint8_t *data)
   printf("Min Display Mastering Luminance = %u cd/m^2\n", min_lum);
   printf("MaxCLL = %u cd/m^2\n", max_cll);
   printf("MaxFALL = %u cd/m^2\n", max_fall);
+
+  return 0;
 }

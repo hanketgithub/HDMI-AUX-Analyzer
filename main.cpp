@@ -1,9 +1,12 @@
 
-#include <stdio.h>
 #include <iostream>
 
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
+
+#include "parser.h"
+
 
 using namespace std;
 
@@ -26,7 +29,18 @@ int main(int argc, const char *argv[]) {
     exit(EXIT_FAILURE);
   }  
 
-  size_t file_sz = 0x1000;
+  size_t file_sz = 0;
+  struct stat st;
+  if (fstat(ifd, &st) == 0)
+  {
+    file_sz = st.st_size;
+  }
+  else
+  {
+    cerr << "fstat() fail，cause：" << strerror(errno) << endl;
+    exit(-1);
+  }
+
   uint8_t *data = (uint8_t *) calloc(1, file_sz);
 
   read(ifd, data, file_sz);

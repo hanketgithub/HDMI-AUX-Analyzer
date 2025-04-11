@@ -29,4 +29,11 @@ typedef struct
     uint8_t itc : 1;                  // ITC
 } AviPB3_T;
 
+
+int ParseAVIInfoFrame(uint8_t *data);
+
+
+int ParseHDRInfoFrame(uint8_t *data);
+
+
 #endif
