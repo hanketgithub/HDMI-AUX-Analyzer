@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#include "parser.h"
+#include "hdmi_aux_analyzer.h"
 
 
 using namespace std;

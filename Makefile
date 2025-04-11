@@ -1,4 +1,4 @@
-target  = parser
+target  = hdmi_aux_analyzer
 sources = main.cpp $(target).cpp
 objects = $(patsubst %.cpp,%.o,$(sources))
 CC = g++

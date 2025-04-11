@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "parser.h"
+#include "hdmi_aux_analyzer.h"
 
 static uint16_t read_le_u16(uint8_t *ptr)
 {

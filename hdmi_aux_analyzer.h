@@ -1,7 +1,7 @@
 
 
-#ifndef ___PARSER___
-#define ___PARSER___
+#ifndef ___HDM_AUX_ANALYZER___
+#define ___HDM_AUX_ANALYZER___
 
 typedef struct
 {
